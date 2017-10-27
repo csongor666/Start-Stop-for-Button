@@ -16,10 +16,10 @@ void loop() {
   reading = digitalRead(buttonPin);
 
 
-  // determine if the button is pressed and assign button state
+  // determine if the button is pressed with debounce
   if (reading == HIGH && previous == LOW && (millis() - stateTime) > debounce)
   {
-    Serial.println("Bunnon PUSHED");
+    Serial.println("Button PUSHED");
     if (state == HIGH)
     {
       state = LOW;
@@ -32,10 +32,10 @@ void loop() {
     stateTime = millis();
   }
 
-  // start/stop writing data to SD card when button is pressed
+  
   if (state == LOW)
   {
-    Serial.println("PROGRAM RUNNING");
+    Serial.println("PROGRAM RUNNING"); //Put here the program you want to run till button pushed again 
 
   }
 
